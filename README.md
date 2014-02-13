@@ -24,5 +24,5 @@ global distributors and partners to push open hardware movement.<br>
 [1]:http://www.seeedstudio.com/wiki/Grove_-_6-Axis_Accelerometer%26Compass
 
 
-
+[![Analytics](https://ga-beacon.appspot.com/UA-46589105-3/Grove_6Axis_Accelerometer_And_Compass)](https://github.com/igrigorik/ga-beacon)
 
