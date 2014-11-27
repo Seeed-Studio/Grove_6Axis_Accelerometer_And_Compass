@@ -1,9 +1,10 @@
 ##6Axis_Accelerometer_And_Compass
 ![image](http://www.seeedstudio.com/wiki/images/9/9d/6Axis_Compass_01.jpg)
 
-3-Axis Digital Accelerometer is the key part in projects like orientation detection, gesture detection and Motion detection. This 3-Asix Digital Accelerometer(±1.5g) is based on Freescale's low power consumption module, MMA7660FC. It features up to 10,000g high shock surviability and configurable Samples per Second rate. For generous applications that don't require too large measurement range, this is a great choice because it's durable, energy saving and cost-efficient.
+The Grove 6-Axis Accelerometer & Compass is a 3-axis accelerometer combined with a 3-axis magnetic sensor.  It is based on the sensor module LSM303DLH which has a selectable linear acceleration full scale range of ±2g / ±4g / ±8g and a selectable magnetic field full scale range of ±1.3 /±1.9 / ±2.5 / ±4.0 / ±4.7 / ±5.6 / ±8.1 gauss. Both the magnetic parts and the accelerometer parts can be powered down separately to reduce the power consumption. The Arduino can get these data via the I2C interface.
 
 For more information, please refer to [Grove_6Axis_Accelerometer_And_Compass][1]
+See also: [LSM303DLH Sensor Module Datasheet][2]
 
 ----
 This software is written by Frankie Chu for [Seeed Technology Inc.](http://www.seeed.cc) and is licensed under [The MIT License](http://opensource.org/licenses/mit-license.php). Check License.txt/LICENSE for the details of MIT license.<br>
@@ -17,7 +18,7 @@ Seeed is a hardware innovation platform for makers to grow inspirations into dif
 
 
 [1]:http://www.seeedstudio.com/wiki/Grove_-_6-Axis_Accelerometer%26Compass
-
+[2]:http://www.st.com/web/en/resource/technical/document/datasheet/CD00260288.pdf
 
 [![Analytics](https://ga-beacon.appspot.com/UA-46589105-3/6Axis_Accelerometer_And_Compass)](https://github.com/igrigorik/ga-beacon)
 
