@@ -97,8 +97,8 @@
 #define IRC_REG_M 0x0C
 
 /* Global variables */
-int accel[3];  // we'll store the raw acceleration values here
-int mag[3];  // raw magnetometer values stored here
+int16_t accel[3];  // we'll store the raw acceleration values here
+int16_t mag[3];  // raw magnetometer values stored here
 float realAccel[3];  // calculated acceleration values here
 
 void setup()
@@ -146,7 +146,7 @@ void initLSM303(int fs)
   LSM303_write(0x00, MR_REG_M);  // 0x00 = continouous conversion mode
 }
 
-void printValues(int * magArray, int * accelArray)
+void printValues(int16_t * magArray, int16_t * accelArray)
 {
   /* print out mag and accel arrays all pretty-like */
   Serial.print(accelArray[X], DEC);
@@ -164,7 +164,7 @@ void printValues(int * magArray, int * accelArray)
   Serial.print(magArray[Z], DEC);
   Serial.println();
 }
-float getHeading(int * magValue)
+float getHeading(int16_t * magValue)
 {
   // see section 1.2 in app note AN3192
   float heading = 180*atan2(magValue[Y], magValue[X])/PI;  // assume pitch, roll are 0
@@ -176,7 +176,7 @@ float getHeading(int * magValue)
 }
 
 
-float getTiltHeading(int * magValue, float * accelValue)
+float getTiltHeading(int16_t * magValue, float * accelValue)
 {
   // see appendix A in app note AN3192 
   float pitch = asin(-accelValue[X]);
@@ -191,25 +191,25 @@ float getTiltHeading(int * magValue, float * accelValue)
   else    return (360 + heading);
 }
 
-void getLSM303_mag(int * rawValues)
+void getLSM303_mag(int16_t * rawValues)
 {
   Wire.beginTransmission(LSM303_MAG);
   Wire.write(OUT_X_H_M);
   Wire.endTransmission();
   Wire.requestFrom(LSM303_MAG, 6);
   for (int i=0; i<3; i++)
-    rawValues[i] = (Wire.read() << 8) | Wire.read();
+    rawValues[i] = (int16_t)(Wire.read() << 8) | Wire.read();
   int temp;
   temp = rawValues[Y];
   rawValues[Y] = rawValues[Z];
   rawValues[Z] = temp;  
 }
 
-void getLSM303_accel(int * rawValues)
+void getLSM303_accel(int16_t * rawValues)
 {
-  rawValues[Z] = ((int)LSM303_read(OUT_X_L_A) << 8) | (LSM303_read(OUT_X_H_A));
-  rawValues[X] = ((int)LSM303_read(OUT_Y_L_A) << 8) | (LSM303_read(OUT_Y_H_A));
-  rawValues[Y] = ((int)LSM303_read(OUT_Z_L_A) << 8) | (LSM303_read(OUT_Z_H_A));
+  rawValues[Z] = (int16_t)(LSM303_read(OUT_X_L_A) << 8) | (LSM303_read(OUT_X_H_A));
+  rawValues[X] = (int16_t)(LSM303_read(OUT_Y_L_A) << 8) | (LSM303_read(OUT_Y_H_A));
+  rawValues[Y] = (int16_t)(LSM303_read(OUT_Z_L_A) << 8) | (LSM303_read(OUT_Z_H_A));
   // had to swap those to right the data with the proper axis
 }
 
