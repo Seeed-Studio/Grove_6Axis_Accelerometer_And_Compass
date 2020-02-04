@@ -1,4 +1,4 @@
-## Grove - 6-Axis Accelerometer&Gyroscope
+## Grove - 6-Axis Accelerometer&Gyroscope  [![Build Status](https://travis-ci.com/Seeed-Studio/Grove_6Axis_Accelerometer_And_Compass.svg?branch=master)](https://travis-ci.com/Seeed-Studio/Grove_6Axis_Accelerometer_And_Compass)
 
 <img src=https://statics3.seeedstudio.com/images/product/105020012%203.jpg width=300><img src=https://statics3.seeedstudio.com/product/105020012%203_02.jpg width=300>
 
